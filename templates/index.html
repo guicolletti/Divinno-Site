@@ -10,6 +10,16 @@
     <link rel="icon" href="../static/img/Logo-1.png" type="image/x-icon">
 </head>
 <body>
+
+    <div id="ageVerificationModal" class="modal">
+        <div class="modal-content">
+            <h2>Verificação de Idade</h2>
+            <p>Você possui mais de 18 anos de idade?</p>
+            <button id="yesBtn">Sim</button>
+            <button id="noBtn">Não</button>
+        </div>
+    </div>
+
     <div class="logo-container">
         <div>
             <a href="{{ url_for('inicial')}}">
@@ -63,7 +73,7 @@
     </div>
 
     <h1>Descubra o SEU VINHO Ideal</h1>
-    <div class="seta" >
+    <div class="seta">
         <img style="width: 5%;" src="../static/img/seta.png" alt="seta"></img>
     </div>
 
@@ -104,18 +114,20 @@
                 </div>
             </div>
         </div>
+</body>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Prefixfree para CSS (se necessário)
+        const script = document.createElement('script');
+        script.src = "https://leaverou.github.io/prefixfree/prefixfree.min.js";
+        document.head.appendChild(script);
 
-    <script>
+        // Toggle do menu
+        const menuToggle = document.querySelector('.menu-toggle');
+        const navList = document.querySelector('.nav-list');
 
-        type="text/javascript" src="https://leaverou.github.io/prefixfree/prefixfree.min.js"
-
-        document.addEventListener('DOMContentLoaded', function() {
-            const menuToggle = document.querySelector('.menu-toggle');
-            const navList = document.querySelector('.nav-list');
-
-            menuToggle.addEventListener('click', function() {
-                navList.classList.toggle('active');
-            });
+        menuToggle.addEventListener('click', function() {
+            navList.classList.toggle('active');
         });
 
         // Scroll para o topo quando a página for recarregada
@@ -124,34 +136,35 @@
         };
 
         // Animação para o slogan e seções
-        window.addEventListener('DOMContentLoaded', function() {
-            const slogan = document.querySelector('.letra_imagem');
+        const slogan = document.querySelector('.letra_imagem');
+        if (slogan) {
             slogan.classList.add('visible');
+        }
 
-            const sections = document.querySelectorAll('.section');
+        const sections = document.querySelectorAll('.section');
 
-            // Função para verificar se o dispositivo é móvel
-            const isMobileDevice = () => {
-                return window.innerWidth <= 768; // Ajuste conforme necessário
-            };
+        // Função para verificar se o dispositivo é móvel
+        const isMobileDevice = () => {
+            return window.innerWidth <= 768; // Ajuste conforme necessário
+        };
 
-            if (isMobileDevice()) {
-                // Adiciona a classe visível para dispositivos móveis
+        // Exibe as seções de acordo com o dispositivo
+        if (isMobileDevice()) {
+            sections.forEach(section => {
+                section.classList.add('visible');
+            });
+        } else {
+            window.addEventListener('scroll', function() {
                 sections.forEach(section => {
-                    section.classList.add('visible');
+                    const rect = section.getBoundingClientRect();
+                    if (rect.top < window.innerHeight - 50) {
+                        section.classList.add('visible');
+                    }
                 });
-            } else {
-                // Para desktops, adicionar animação na rolagem
-                window.addEventListener('scroll', function() {
-                    sections.forEach(section => {
-                        const rect = section.getBoundingClientRect();
-                        if (rect.top < window.innerHeight - 50) {
-                            section.classList.add('visible');
-                        }
-                    });
-                });
-            }
-        });
+            });
+        }
+
+        // Exibe as seções com animação de acordo com o scroll
         sections.forEach((section, index) => {
             const rect = section.getBoundingClientRect();
             if (rect.top < window.innerHeight - 50) {
@@ -159,6 +172,32 @@
             }
         });
 
-    </script>
-</body>
+        // Exibe o modal de verificação de idade quando a página carrega
+        const modal = document.getElementById("ageVerificationModal");
+
+        // Verifica se o modal deve ser exibido
+        if (!sessionStorage.getItem("ageVerified")) {
+            modal.style.display = "flex";
+        }
+
+        // Lógica para o botão 'Sim' (usuário maior de 18)
+        document.getElementById("yesBtn").onclick = function() {
+            modal.style.display = "none"; // Fecha o modal
+            sessionStorage.setItem("ageVerified", "true"); // Salva a verificação para não aparecer novamente
+
+            // Reativa os links
+            document.querySelector('.nav-list .cardapio').style.pointerEvents = 'auto';
+            document.querySelector('.nav-list .contato').style.pointerEvents = 'auto';
+            document.querySelector('.nav-list .cardapio').style.cursor = 'pointer';
+            document.querySelector('.nav-list .contato').style.cursor = 'pointer';
+            document.querySelector('.nav-list .cardapio').style.color = '';  // Reseta a cor
+            document.querySelector('.nav-list .contato').style.color = '';  // Reseta a cor
+        };
+
+        // Lógica para o botão 'Não' (usuário menor de 18)
+        document.getElementById("noBtn").onclick = function() {
+            window.location.href = "https://www.google.com"; // Redireciona para uma página de sua escolha
+        };
+    });
+</script>
 </html>
