@@ -1,6 +1,6 @@
 async function fetchBotResponse(messageText) {
     try {
-        const response = await fetch(`${window.location.href}search?prompt=${messageText}`);
+        const response = await fetch(`/search?prompt=${encodeURIComponent(messageText)}`);
         const data = await response.json();
         return data.message;
     } catch (error) {
