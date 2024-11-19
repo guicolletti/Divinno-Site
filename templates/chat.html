@@ -4,11 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chatbot IA</title>
+    <link rel="icon" href="../static/img/Logo-1.png" type="image/x-icon">
     <link rel="stylesheet" href="../static/css/chat.css">
     <script src="../static/js/chat.js"></script>
 
 </head>
 <body>
+
+    <div class="logo-container">
+        <div>
+            <a href="{{ url_for('inicial')}}">
+                <img href="/" class="logo" src="../static/img/logo.png">
+            </a>
+        </div>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <ul class="nav-list">
+            <li><a href="{{ url_for('cardapio')}}" class="cardapio">Cardapio</a></li>
+            <div class="separator"></div>
+            <li><a href="{{ url_for('contato')}}" class="contato">Contato</a></li>
+        </ul>
+    </div>
+
     <div class="chat-container">
         <div class="chat-header">
             <h2>🍷 Chatbot - DiVinno 🍷</h2>
@@ -25,6 +45,21 @@
                 placeholder="Digite sua mensagem e aperte [Enter]"
                 autocomplete="off"
                 onkeypress="checkEnter(event)">
+        </div>
+    </div>
+
+    <div class="logo-content-rodape">
+        <div>
+            <a href="{{ url_for('inicial')}}">
+                <img href="/" class="logo-rodape" src="../static/img/logo.png">
+            </a>
+        </div>
+        <div class="visivel">
+            <hr class="linha">
+            <div class="paragrafos">
+                <p>© 2024 Divinno, Todos os direitos reservados </p>
+                <p>Desenvolvido por:Otávio Esboriol da Silva e Guilherme Colleti da Silva</p>
+            </div>
         </div>
     </div>
 

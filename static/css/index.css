@@ -10,6 +10,82 @@ body {
     font-family: 'Arial', sans-serif;
 }
 
+
+.logo-container button,
+.logo-container a {
+    outline: none; /* Remove a bolinha preta ao focar */
+}
+
+.logo-container {
+    display: flex; /* Flexbox para alinhar os itens */
+    align-items: center; /* Alinha verticalmente os itens no centro */
+    justify-content: space-between; /* Espaça os itens */
+    margin-bottom: 1px;
+    padding: 20px;
+    background-color: #722F37;
+    width: 100%; /* Garantir que ocupe toda a largura da tela */
+}
+
+.logo-wrapper {
+    flex: 0 0 auto; /* Garante que a logo não cresça ou encolha */
+}
+
+.separator {
+    width: 2px; /* Largura da barra */
+    height: 20px; /* Altura da barra */
+    background-color: white; /* Cor da barra */
+    margin: 0 15px; /* Margem entre os links */
+    display: inline-block; /* Faz a barra se comportar como um bloco inline */
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    margin-right: 50px; /* Ajuste para mover os links horizontalmente à direita */
+}
+
+.logo {
+    max-width: 100px;
+    height: auto;
+    width: 90px;
+    cursor: pointer;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a {
+    color: rgb(225, 224, 224);
+    text-decoration: none;
+    font-size: 15px;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.cardapio, .contato, .sobre{
+    color: rgb(225, 224, 224);
+    text-decoration: none;
+    margin: 0 15px; /* Margem entre os links */
+    font-family: "Nunito Sans", sans-serif, helvetica, arial;
+}
+
+.sobre {
+    position: relative;
+    margin-left: 0; /* Remova o grande deslocamento para a esquerda */
+    font-size: 18px;
+    text-align: center; /* Centraliza o texto */
+}
+
+.contato {
+    position: relative;
+    margin-right: 0px;
+    font-size: 18px;
+}
+
 h1 {
     color: white;
     z-index: 2;
@@ -25,12 +101,6 @@ h2, h3 {
     display: flex;
     justify-content: center;
     align-items: center;
-}
-
-.sobre, .contato {
-    position: relative;
-    font-size: 18px;
-    text-align: center;
 }
 
 h3 {
@@ -92,60 +162,46 @@ p {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-.logo {
-    max-width: 100px;
-    height: auto;
-    width: 90px;
-    cursor: pointer;
-}
-
-.logo-container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    margin-bottom: 1px;
-    padding: 10px;
-    background-color: #722F37;
-}
-
 .menu-toggle {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    position: absolute;
-    top: 20px;
-    right: 20px;
+    display: none; /* Oculta o botão por padrão */
+    flex-direction: column; /* Alinha as barras em coluna */
+    cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+    position: absolute; /* Posiciona em relação ao contêiner pai */
+    top: 20px; /* Distância do topo */
+    right: 20px; /* Distância da direita */
 }
-
 .menu-toggle .bar {
-    height: 3px;
-    width: 25px;
-    background-color: white;
-    margin: 3px 0;
+    height: 3px; /* Altura das barras */
+    width: 25px; /* Largura das barras */
+    background-color: white; /* Cor das barras */
+    margin: 3px 0; /* Espaçamento entre as barras */
 }
-
 .nav-list {
-    display: none;
+    display: none; /* Oculta o menu por padrão */
     position: absolute;
-    top: 60px;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 60px; /* Distância do topo */
+    left: 50%; /* Posiciona o menu no meio da tela */
+    transform: translateX(-50%); /* Centraliza horizontalmente */
     background-color: #722f37;
-    padding: 5px;
+    padding: 5px; /* Diminui o preenchimento interno do menu */
     border-radius: 5px;
-    font-size: 18px;
-    z-index: 1000;
+    font-size: 18px; /* Aumenta o tamanho da fonte */
+    z-index: 1000; /* Certifique-se de que o menu esteja acima de outros elementos */
+    width: auto; /* Ajusta a largura do menu */
 }
-
 .nav-list li {
     list-style: none;
     margin: 5px 0;
-    padding: 5px;
+    padding: 5px; /* Opcional: diminui o preenchimento interno dos itens */
 }
-
 .nav-list.active {
-    display: block;
-    width: 100%;
+    display: block; /* Mostra o menu quando a classe 'active' é adicionada */
+    width: 100%; /* Largura total para o menu */
+}
+.button-container {
+    display: flex; /* Flexbox para alinhar os botões */
+    justify-content: center; /* Centraliza os botões */
+    margin-top: 10px; /* Margem superior para os botões */
 }
 
 .section {
@@ -275,76 +331,6 @@ p {
     transform: translateY(0);
 }
 
-.nav-links {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-grow: 1;
-    margin-right: 50px;
-}
-
-.cardapio, .contato {
-    color: rgb(225, 224, 224);
-    text-decoration: none;
-    margin: 0 15px;
-    font-family: "Nunito Sans", sans-serif, Helvetica, Arial;
-}
-
-.logo-wrapper {
-    flex: 0 0 auto;
-}
-
-.separator {
-    width: 2px;
-    height: 20px;
-    background-color: white;
-    margin: 0 15px;
-    display: inline-block;
-}
-
-a {
-    text-decoration: none; /* Remove o sublinhado padrão */
-    color: #722F37; /* Cor do link */
-}
-
-
-a:hover, a:focus, a:active {
-    text-decoration: none; /* Garante que não haja sublinhado ao passar o mouse ou focar */
-}
-
-a::before {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background-color: #722F37;
-    transition: width 0.3s, left 0.3s;
-}
-
-a:hover::before {
-    width: 100%;
-    left: 0;
-}
-
-a:hover {
-    position: relative;
-    text-decoration: none;
-}
-
-a:hover::after {
-    content: '';
-    position: absolute;
-    bottom: -3px;
-    left: 50%;
-    width: 0;
-    height: 2px;
-    background-color: white;
-    transition: width 0.4s ease, left 0.4s ease;
-    text-decoration: none;
-}
-
 .letra_imagem {
     opacity: 100%;
     transform: translateY(50px);
@@ -359,7 +345,7 @@ a:hover::after {
 hr {
     border: 0; /* Remove a borda padrão */
     height: 2px; /* Altura da linha */
-    background-color: red; /* Cor da linha */
+    background-color: #ffffff; /* Cor da linha */
     margin: 20px 0; /* Margens superior e inferior */
 }
 
@@ -367,41 +353,33 @@ hr {
     display: flex; /* Usa flexbox para alinhar os itens */
     align-items: center; /* Alinha verticalmente os itens no centro */
     justify-content: space-between; /* Espaça os itens */
-    flex-wrap: wrap;
     margin-bottom: 01px;
     padding: 10px;
     background-color: #722F37;
 }
-
 .logo-rodape {
     max-width: 100px;
     height: auto;
     width: 90px;
     cursor: pointer;
 }
-
 .linha {
     height: 2px; /* Altura da linha */
     background-color: white; /* Cor da linha */
     margin: 20px 0; /* Margens superior e inferior */
 }
-
 .paragrafos {
-    width: 100%;
-    text-align: center;
-    margin-top: 10px;
+    display: inline-block; /* Permite que os parágrafos fiquem lado a lado */
+    width: 100%; /* Ajusta a largura do contêiner para que os parágrafos ocupem toda a linha */
 }
-
 .paragrafos p {
     display: inline; /* Coloca os parágrafos lado a lado */
     color: white;
     margin-right: 300px; /* Espaço entre os parágrafos (opcional) */
 }
-
 .paragrafos p:last-child {
     margin-right: 0;
 }
-
 .visivel {
     display: block;
 }

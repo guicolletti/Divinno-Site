@@ -1,28 +1,102 @@
-* {
+body {
+    background-color: #7B4F55;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
+    display: flex; /* Centraliza conteúdo */
+    justify-content: center; /* Centraliza horizontalmente */
+    align-items: center; /* Centraliza verticalmente */
+    min-height: 100vh; /* Garante que o conteúdo ocupe toda a altura da tela */
+    flex-direction: column; /* Organiza os elementos na coluna */
 }
 
-body {
-    background-color: #5b1616;
+.logo-container button,
+.logo-container a {
+    outline: none; /* Remove a bolinha preta ao focar */
+}
+
+.logo-container {
+    display: flex; /* Flexbox para alinhar os itens */
+    align-items: center; /* Alinha verticalmente os itens no centro */
+    justify-content: space-between; /* Espaça os itens */
+    margin-bottom: 1px;
+    padding: 20px;
+    background-color: #722F37;
+    width: 100%; /* Garantir que ocupe toda a largura da tela */
+}
+
+.logo-wrapper {
+    flex: 0 0 auto; /* Garante que a logo não cresça ou encolha */
+}
+
+.separator {
+    width: 2px; /* Largura da barra */
+    height: 20px; /* Altura da barra */
+    background-color: white; /* Cor da barra */
+    margin: 0 15px; /* Margem entre os links */
+    display: inline-block; /* Faz a barra se comportar como um bloco inline */
+}
+
+.nav-links {
     display: flex;
-    justify-content: center;
     align-items: center;
-    height: 100vh;
-    overflow: hidden; /* Evitar rolagem da página */
+    justify-content: center;
+    flex-grow: 1;
+    margin-right: 50px; /* Ajuste para mover os links horizontalmente à direita */
+}
+
+.logo {
+    max-width: 100px;
+    height: auto;
+    width: 90px;
+    cursor: pointer;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a {
+    color: rgb(225, 224, 224);
+    text-decoration: none;
+    font-size: 15px;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.cardapio, .contato, .sobre{
+    color: rgb(225, 224, 224);
+    text-decoration: none;
+    margin: 0 15px; /* Margem entre os links */
+    font-family: "Nunito Sans", sans-serif, helvetica, arial;
+}
+
+.sobre {
+    position: relative;
+    margin-left: 0; /* Remova o grande deslocamento para a esquerda */
+    font-size: 18px;
+    text-align: center; /* Centraliza o texto */
+}
+
+.contato {
+    position: relative;
+    margin-right: 0px;
+    font-size: 18px;
 }
 
 .chat-container {
-    width: 70%; /* 70% da largura da página */
-    height: 80%; /* Ajusta a altura para 80% da tela */
+    width: 60%; /* Ajusta a largura da caixa */
+    height: 80vh; /* Ajusta a altura da caixa para 80% da tela */
     background-color: white;
     box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    overflow: hidden; /* Para garantir que o conteúdo não extrapole */
+    overflow: hidden; /* Garante que o conteúdo não extrapole */
+    margin-top: 20px; /* Espaço superior */
+    margin-bottom: 20px; /* Espaço inferior */
 }
 
 .chat-header {
@@ -92,4 +166,162 @@ body {
     white-space: pre-wrap;   /* Mantém quebras de linha */
     word-wrap: break-word;   /* Quebra palavras longas */
     overflow-wrap: break-word; /* Alternativa moderna */
+}
+
+.menu-toggle {
+    display: none; /* Oculta o botão por padrão */
+    flex-direction: column; /* Alinha as barras em coluna */
+    cursor: pointer; /* Cursor de ponteiro ao passar o mouse */
+    position: absolute; /* Posiciona em relação ao contêiner pai */
+    top: 20px; /* Distância do topo */
+    right: 20px; /* Distância da direita */
+}
+
+.menu-toggle .bar {
+    height: 3px; /* Altura das barras */
+    width: 25px; /* Largura das barras */
+    background-color: white; /* Cor das barras */
+    margin: 3px 0; /* Espaçamento entre as barras */
+}
+
+.nav-list {
+    display: none; /* Oculta o menu por padrão */
+    position: absolute;
+    top: 60px; /* Distância do topo */
+    left: 50%; /* Posiciona o menu no meio da tela */
+    transform: translateX(-50%); /* Centraliza horizontalmente */
+    background-color: #722f37;
+    padding: 5px; /* Diminui o preenchimento interno do menu */
+    border-radius: 5px;
+    font-size: 18px; /* Aumenta o tamanho da fonte */
+    z-index: 1000; /* Certifique-se de que o menu esteja acima de outros elementos */
+    width: auto; /* Ajusta a largura do menu */
+}
+
+.nav-list li {
+    list-style: none;
+    margin: 5px 0;
+    padding: 5px; /* Opcional: diminui o preenchimento interno dos itens */
+}
+
+.nav-list.active {
+    display: block; /* Mostra o menu quando a classe 'active' é adicionada */
+    width: 100%; /* Largura total para o menu */
+}
+
+.button-container {
+    display: flex; /* Flexbox para alinhar os botões */
+    justify-content: center; /* Centraliza os botões */
+    margin-top: 10px; /* Margem superior para os botões */
+}
+
+hr {
+    border: 0; /* Remove a borda padrão */
+    height: 2px; /* Altura da linha */
+    background-color: red; /* Cor da linha */
+    margin: 20px 0; /* Margens superior e inferior */
+}
+
+.logo-content-rodape {
+    display: flex; /* Usa flexbox para alinhar os itens */
+    align-items: center; /* Alinha verticalmente os itens no centro */
+    justify-content: space-between; /* Espaça os itens */
+    margin-bottom: 01px;
+    padding: 10px;
+    background-color: #722F37;
+}
+
+.logo-rodape {
+    max-width: 100px;
+    height: auto;
+    width: 90px;
+    cursor: pointer;
+}
+
+.linha {
+    height: 2px; /* Altura da linha */
+    background-color: white; /* Cor da linha */
+    margin: 20px 0; /* Margens superior e inferior */
+}
+
+.paragrafos {
+    display: inline-block; /* Permite que os parágrafos fiquem lado a lado */
+    width: 100%; /* Ajusta a largura do contêiner para que os parágrafos ocupem toda a linha */
+}
+
+.paragrafos p {
+    display: inline; /* Coloca os parágrafos lado a lado */
+    color: white;
+    margin-right: 300px; /* Espaço entre os parágrafos (opcional) */
+}
+
+.paragrafos p:last-child {
+    margin-right: 0;
+}
+
+.visivel {
+    display: block;
+}
+
+@media (max-width: 768px) {
+
+    .visivel {
+        display: none;
+    }
+
+    .logo-rodape {
+        max-width: 200px;
+        width: 135px;
+    }
+}
+
+@media (max-width: 768px) {
+    .nav-list {
+        display: none; /* Oculta o menu por padrão em telas menores */
+        position: absolute; /* Mantém a posição absoluta */
+        top: 60px; /* Distância do topo */
+        left: 50%; /* Centraliza horizontalmente */
+        transform: translateX(-50%); /* Garante que o menu fique centralizado */
+        width: 100%; /* Ajuste a largura do menu */
+        max-width: 750px; /* Largura máxima */
+        padding: 10px; /* Um pouco de preenchimento */
+    }
+
+    .nav-list.active {
+    display: block;
+    left: 0; /* Remove o deslocamento */
+    right: 0; /* Garante que o menu se estenda até o final da tela */
+    transform: none; /* Remove a transformação para centralizar o menu corretamente */
+    width: 93%; /* Garante que o menu cubra toda a tela */
+    }
+
+    .menu-toggle {
+        display: flex; /* Mostra o botão hamburguer em telas pequenas */
+    }
+
+    .button-container {
+        display: none; /* Oculta os botões em telas menores */
+    }
+
+}
+
+@media (min-width: 769px) {
+    .menu-toggle {
+        display: none; /* Oculta o botão hambúrguer em telas maiores */
+    }
+
+   .nav-list {
+        display: flex; /* Mostra os links de navegação diretamente */
+        position: static; /* Remove a posição absoluta */
+        margin: 0 auto;
+        padding: 0;
+        background-color: transparent;
+        justify-content: center; /* Centraliza os itens */
+        width: auto;
+        margin-left: 520px; /* Adiciona uma margem à esquerda para movê-los à direita */
+   }
+
+    .nav-list li {
+        margin: 0 15px; /* Espaçamento entre os itens do menu */
+    }
 }
