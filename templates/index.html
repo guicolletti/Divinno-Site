@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DiVinno</title>
+    <link rel="stylesheet" href="../static/css/index.css">
+    <link rel="stylesheet" href="../static/css/rodape.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/botao.css') }}">
+    <link rel="icon" href="../static/img/Logo-1.png" type="image/x-icon">
+</head>
+<body>
+    <div class="logo-container">
+        <div>
+            <a href="{{ url_for('inicial')}}">
+                <img href="/" class="logo" src="../static/img/logo.png">
+            </a>
+        </div>
+        <div class="menu-toggle" id="mobile-menu">
+            <span class="bar"></span>
+            <span class="bar"></span>
+            <span class="bar"></span>
+        </div>
+        <ul class="nav-list">
+            <li><a href="{{ url_for('cardapio')}}" class="cardapio">Cardapio</a></li>
+                <div class="separator"></div>
+            <li><a href="{{ url_for('contato')}}" class="contato">Contato</a></li>
+        </ul>
+    </div>
+
+    <div class="primeiro">
+        <h2 class="letra_imagem">"O melhor vinho, em qualquer horário e lugar"</h2>
+    </div>
+
+    <div class="rotulos-container">
+
+        <div class="rotulo">
+          <img src="../static/img/rotulo-certo.png" alt="Imagem do rótulo">
+          <div class="texto-rotulo">
+            <h3 class="titulo-rotulo">Missão</h3>
+            <p class="subtitulo-rotulo">Oferecer vinhos de alta qualidade que tornem cada momento único e especial, garantindo experiências marcantes e inesquecíveis. Nossa missão é buscar a excelência em cada garrafa, inspirando sorrisos e celebrando a vida junto a nossos clientes.</p>
+          </div>
+        </div>
+
+        <div class="rotulo">
+          <img src="../static/img/rotulo-certo.png" alt="Imagem do rótulo">
+          <div class="texto-rotulo">
+            <h3 class="titulo-rotulo">Visão</h3>
+            <p class="subtitulo-rotulo">Ser reconhecida como a principal rede de vinhos no Brasil, destacando-se por tornar o vinho acessível e valorizado por todos. Nosso objetivo é liderar o mercado, oferecendo um modelo inovador e conveniente que encante e fidelize consumidores.</p>
+          </div>
+        </div>
+
+        <div class="rotulo">
+          <img src="../static/img/rotulo-certo.png" alt="Imagem do rótulo">
+          <div class="texto-rotulo">
+            <h3 class="titulo-rotulo">Valores</h3>
+            <p class="subtitulo-rotulo">Inovação: Aplicamos tecnologia moderna para transformar a experiência do consumidor.
+                Acessibilidade: Tornamos o vinho uma escolha simples para todos.
+                Paixão: Guiados pelo amor ao vinho, buscamos a perfeição.
+                Sustentabilidade: Agimos de forma ética e responsável em todo o processo.</p>
+          </div>
+        </div>
+    </div>
+
+    <h1>Descubra o SEU VINHO Ideal</h1>
+    <h3 class="h3-garrafa">(Clique na Garrafa de Vinho abaixo)</h3>
+
+    <div>
+        <div id="plate">
+            <div id="bottle" onclick="window.location.href='/chat'">
+                <div class="cork"></div>
+                <div class="neck"></div>
+                <div class="body">
+                    <div class="label"></div>
+                    <div class="label-shadow"></div>
+                </div>
+            </div>
+
+            <div id="cork">
+            </div>
+
+            <div id="glass">
+                <div class="bowl">
+                    <div class="wine"></div>
+                </div>
+                <div class="stem"></div>
+                <div class="foot"></div>
+            </div>
+        </div>
+
+        <div class="logo-content-rodape">
+            <div>
+                <a href="{{ url_for('inicial')}}">
+                    <img href="/" class="logo-rodape" src="../static/img/logo.png">
+                </a>
+            </div>
+            <div class="visivel">
+                <hr class="linha">
+                <div class="paragrafos">
+                    <p>© 2024 Divinno, Todos os direitos reservados </p>
+                    <p>Desenvolvido por: Otávio Esboriol da Silva e Guilherme Colleti da Silva</p>
+                </div>
+            </div>
+        </div>
+
+    <script>
+
+        type="text/javascript" src="https://leaverou.github.io/prefixfree/prefixfree.min.js"
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.querySelector('.menu-toggle');
+            const navList = document.querySelector('.nav-list');
+
+            menuToggle.addEventListener('click', function() {
+                navList.classList.toggle('active');
+            });
+        });
+
+        // Scroll para o topo quando a página for recarregada
+        window.onbeforeunload = function () {
+            window.scrollTo(0, 0);
+        };
+
+        // Animação para o slogan e seções
+        window.addEventListener('DOMContentLoaded', function() {
+            const slogan = document.querySelector('.letra_imagem');
+            slogan.classList.add('visible');
+
+            const sections = document.querySelectorAll('.section');
+
+            // Função para verificar se o dispositivo é móvel
+            const isMobileDevice = () => {
+                return window.innerWidth <= 768; // Ajuste conforme necessário
+            };
+
+            if (isMobileDevice()) {
+                // Adiciona a classe visível para dispositivos móveis
+                sections.forEach(section => {
+                    section.classList.add('visible');
+                });
+            } else {
+                // Para desktops, adicionar animação na rolagem
+                window.addEventListener('scroll', function() {
+                    sections.forEach(section => {
+                        const rect = section.getBoundingClientRect();
+                        if (rect.top < window.innerHeight - 50) {
+                            section.classList.add('visible');
+                        }
+                    });
+                });
+            }
+        });
+        sections.forEach((section, index) => {
+            const rect = section.getBoundingClientRect();
+            if (rect.top < window.innerHeight - 50) {
+                setTimeout(() => section.classList.add('visible'), index * 200);
+            }
+        });
+
+    </script>
+</body>
+</html>
