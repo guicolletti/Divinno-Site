@@ -1,0 +1,58 @@
+hr {
+    border: 0; /* Remove a borda padrão */
+    height: 2px; /* Altura da linha */
+    background-color: red; /* Cor da linha */
+    margin: 20px 0; /* Margens superior e inferior */
+}
+
+.logo-content-rodape {
+    display: flex; /* Usa flexbox para alinhar os itens */
+    align-items: center; /* Alinha verticalmente os itens no centro */
+    justify-content: space-between; /* Espaça os itens */
+    padding: 10px;
+    background-color: #722F37;
+}
+
+.logo-rodape {
+    max-width: 100px;
+    height: auto;
+    width: 90px;
+    cursor: pointer;
+}
+
+.linha {
+    height: 2px; /* Altura da linha */
+    background-color: white; /* Cor da linha */
+    margin: 20px 0; /* Margens superior e inferior */
+}
+
+.paragrafos {
+    display: inline-block; /* Permite que os parágrafos fiquem lado a lado */
+    width: 100%; /* Ajusta a largura do contêiner para que os parágrafos ocupem toda a linha */
+}
+
+.paragrafos p {
+    display: inline; /* Coloca os parágrafos lado a lado */
+    color: white;
+    margin-right: 300px; /* Espaço entre os parágrafos (opcional) */
+}
+
+.paragrafos p:last-child {
+    margin-right: 0;
+}
+
+.visivel {
+    display: block;
+}
+
+@media (max-width: 768px) {
+
+    .visivel {
+        display: none;
+    }
+
+    .logo-rodape {
+        max-width: 200px;
+        width: 135px;
+    }
+}

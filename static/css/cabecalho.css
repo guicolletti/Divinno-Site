@@ -1,0 +1,91 @@
+
+.logo-container button,
+.logo-container a {
+    outline: none; /* Remove a bolinha preta ao focar */
+}
+
+.logo-container {
+    display: flex; /* Usa flexbox para alinhar os itens */
+    align-items: center; /* Alinha verticalmente os itens no centro */
+    justify-content: space-between; /* Espaça os itens */
+    margin-bottom: 1px;
+    padding: 20px;
+    background-color: #722F37;
+}
+
+.logo-container {
+    display: flex; /* Usa flexbox para alinhar os itens */
+    align-items: center; /* Alinha verticalmente os itens no centro */
+    justify-content: space-between; /* Espaça os itens */
+    margin-bottom: 1px;
+    padding: 20px;
+    background-color: #722F37;
+}
+
+.logo-wrapper {
+    flex: 0 0 auto; /* Garante que a logo não cresça ou encolha */
+}
+
+.separator {
+    width: 2px; /* Largura da barra */
+    height: 20px; /* Altura da barra */
+    background-color: white; /* Cor da barra */
+    margin: 5px 15px; /* Margem entre os links */
+    display: inline-block; /* Faz a barra se comportar como um bloco inline */
+}
+
+.nav-list .cardapio, .nav-list .contato, .separator {
+    pointer-events: none;
+    cursor: not-allowed;
+    color: white; /* Muda a cor para indicar que o link está desativado */
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-grow: 1;
+    margin-right: 50px; /* Ajuste para mover os links horizontalmente à direita */
+}
+
+.logo {
+    max-width: 100px;
+    height: auto;
+    width: 90px;
+    cursor: pointer;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+a {
+    color: rgb(225, 224, 224);
+    text-decoration: none;
+    font-size: 18px;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+.cardapio, .contato, .sobre{
+    color: rgb(225, 224, 224);
+    text-decoration: none;
+    margin: 0 5px; /* Margem entre os links */
+    font-family: "Nunito Sans", sans-serif, helvetica, arial;
+}
+
+.sobre {
+    position: relative;
+    margin-left: 0; /* Remova o grande deslocamento para a esquerda */
+    font-size: 18px;
+    text-align: center; /* Centraliza o texto */
+}
+
+.contato {
+    position: relative;
+    margin-right: 0px;
+    font-size: 18px;
+}
