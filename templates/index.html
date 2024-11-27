@@ -5,8 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DiVinno</title>
     <link rel="stylesheet" href="../static/css/index.css">
-    <link rel="stylesheet" href="../static/css/rodape.css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/botao.css') }}">
     <link rel="icon" href="../static/img/Logo-1.png" type="image/x-icon">
 </head>
 <body>
@@ -117,12 +115,49 @@
             <hr class="linha">
             <div class="paragrafos">
                 <p>© 2024 Divinno, Todos os direitos reservados</p>
-                <p>Desenvolvido por: Otávio Esboriol da Silva e Guilherme Colleti da Silva</p>
+                <p>Criado por: Otávio Esboriol da Silva e Guilherme Colleti da Silva</p>
             </div>
         </div>
     </div>
 </body>
 <script>
+
+        window.addEventListener('scroll', function() {
+        const wineImage = document.querySelector('.wine-image');
+        const labelContainer = document.querySelector('.label-container');
+
+        // Verifica a posição da imagem
+        const rect = wineImage.getBoundingClientRect();
+
+        // Quando a imagem do vinho aparece na tela
+        if (rect.top < window.innerHeight) {
+            // Expande a altura da container para revelar os rótulos
+            labelContainer.style.height = 'auto';
+
+            // Animar os rótulos
+            const labels = document.querySelectorAll('.label');
+            labels.forEach((label, index) => {
+                setTimeout(() => {
+                    label.style.opacity = 1;
+                    label.style.transform = 'translateY(0)';
+                }, index * 300);  // Atrasa a animação dos rótulos para criar um efeito de sequência
+            });
+        }
+    });
+
+
+        window.addEventListener('scroll', function() {
+        const labels = document.querySelectorAll('.rotulo');
+
+        labels.forEach(label => {
+            const rect = label.getBoundingClientRect();
+            if (rect.top < window.innerHeight && rect.bottom >= 0) {
+                label.style.opacity = 1;
+                label.style.transform = 'translateY(0)';
+            }
+        });
+    });
+
     document.addEventListener('DOMContentLoaded', function () {
         // Elementos relacionados ao pop-up
         const overlay = document.getElementById('age-verification-overlay');
