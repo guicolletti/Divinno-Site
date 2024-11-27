@@ -11,12 +11,13 @@
 </head>
 <body>
 
-    <div id="ageVerificationModal" class="modal">
-        <div class="modal-content">
-            <h2>Verificação de Idade</h2>
-            <p>Você possui mais de 18 anos de idade?</p>
-            <button id="yesBtn">Sim</button>
-            <button id="noBtn">Não</button>
+    <div id="age-verification-overlay" class="overlay">
+        <div class="popup">
+            <h2>Você tem mais de 18 anos?</h2>
+            <div class="buttons">
+                <button id="yes-button">Sim</button>
+                <button id="no-button">Não</button>
+            </div>
         </div>
     </div>
 
@@ -31,8 +32,8 @@
             <span class="bar"></span>
             <span class="bar"></span>
         </div>
-        <ul class="nav-list">
-            <li><a href="{{ url_for('cardapio')}}" class="cardapio">Cardapio</a></li>
+        <ul class="nav-links">
+            <li><a href="{{ url_for('cardapio')}}" class="cardapio">Cardápio</a></li>
             <div class="separator"></div>
             <li><a href="{{ url_for('contato')}}" class="contato">Contato</a></li>
         </ul>
@@ -42,162 +43,136 @@
         <h2 class="letra_imagem">"O melhor vinho, em qualquer horário e lugar"</h2>
     </div>
 
+    <!-- Content Section -->
     <div class="rotulos-container">
-
+        <!-- Rotulos - Missão, Visão, Valores -->
         <div class="rotulo">
-          <img src="../static/img/rotulo-certo.png" alt="Imagem do rótulo">
-          <div class="texto-rotulo">
-            <h3 class="titulo-rotulo">Missão</h3>
-            <p class="subtitulo-rotulo">Oferecer vinhos de alta qualidade que tornem cada momento único e especial, garantindo experiências marcantes e inesquecíveis. Nossa missão é buscar a excelência em cada garrafa, inspirando sorrisos e celebrando a vida junto a nossos clientes.</p>
-          </div>
+            <img src="../static/img/rotulo-certo.png" alt="Imagem do rótulo">
+            <div class="texto-rotulo">
+                <h3 class="titulo-rotulo">Missão</h3>
+                <p class="subtitulo-rotulo">Oferecer vinhos de alta qualidade
+                    que tornem cada momento único e especial, garantindo
+                    experiências marcantes e inesquecíveis. Nossa missão é buscar a
+                    excelência em cada garrafa, inspirando sorrisos e celebrando
+                    a vida junto a nossos clientes.</p>
+            </div>
         </div>
 
         <div class="rotulo">
-          <img src="../static/img/rotulo-certo.png" alt="Imagem do rótulo">
-          <div class="texto-rotulo">
-            <h3 class="titulo-rotulo">Visão</h3>
-            <p class="subtitulo-rotulo">Ser reconhecida como a principal rede de vinhos no Brasil, destacando-se por tornar o vinho acessível e valorizado por todos. Nosso objetivo é liderar o mercado, oferecendo um modelo inovador e conveniente que encante e fidelize consumidores.</p>
-          </div>
+            <img src="../static/img/rotulo-certo.png" alt="Imagem do rótulo">
+            <div class="texto-rotulo">
+                <h3 class="titulo-rotulo">Visão</h3>
+                <p class="subtitulo-rotulo">Ser reconhecida como a principal rede de vinhos no Brasil,
+                    destacando-se por tornar o vinho acessível
+                    e valorizado por todos. Nosso objetivo é liderar o mercado, oferecendo um modelo inovador e conveniente
+                    que encante e fidelize consumidores.</p>
+            </div>
         </div>
 
         <div class="rotulo">
-          <img src="../static/img/rotulo-certo.png" alt="Imagem do rótulo">
-          <div class="texto-rotulo">
-            <h3 class="titulo-rotulo">Valores</h3>
-            <p class="subtitulo-rotulo">Inovação: Aplicamos tecnologia moderna para transformar a experiência do consumidor.
+            <img src="../static/img/rotulo-certo.png" alt="Imagem do rótulo">
+            <div class="texto-rotulo">
+                <h3 class="titulo-rotulo">Valores</h3>
+                <p class="subtitulo-rotulo">Inovação: Aplicamos tecnologia moderna para transformar a experiência do consumidor.
                 Acessibilidade: Tornamos o vinho uma escolha simples para todos.
                 Paixão: Guiados pelo amor ao vinho, buscamos a perfeição.
                 Sustentabilidade: Agimos de forma ética e responsável em todo o processo.</p>
-          </div>
+            </div>
         </div>
     </div>
 
     <h1>Descubra o SEU VINHO Ideal</h1>
     <div class="seta">
-        <img style="width: 5%;" src="../static/img/seta.png" alt="seta"></img>
+        <img style="width: 5%;" src="../static/img/seta.png" alt="seta">
     </div>
 
-    <div>
-        <div id="plate">
-            <div id="bottle" onclick="window.location.href='/chat'">
-                <div class="cork"></div>
-                <div class="neck"></div>
-                <div class="body">
-                    <div class="label"></div>
-                    <div class="label-shadow"></div>
-                </div>
-            </div>
-
-            <div id="cork">
-            </div>
-
-            <div id="glass">
-                <div class="bowl">
-                    <div class="wine"></div>
-                </div>
-                <div class="stem"></div>
-                <div class="foot"></div>
+    <div id="plate">
+        <!-- Bottle and Glass -->
+        <div id="bottle" onclick="window.location.href='/chat'">
+            <div class="cork"></div>
+            <div class="neck"></div>
+            <div class="body">
+                <div class="label"></div>
+                <div class="label-shadow"></div>
             </div>
         </div>
 
-        <div class="logo-content-rodape">
-            <div>
-                <a href="{{ url_for('inicial')}}">
-                    <img href="/" class="logo-rodape" src="../static/img/logo.png">
-                </a>
+        <div id="glass">
+            <div class="bowl">
+                <div class="wine"></div>
             </div>
-            <div class="visivel">
-                <hr class="linha">
-                <div class="paragrafos">
-                    <p>© 2024 Divinno, Todos os direitos reservados </p>
-                    <p>Desenvolvido por:Otávio Esboriol da Silva e Guilherme Colleti da Silva</p>
-                </div>
+            <div class="stem"></div>
+            <div class="foot"></div>
+        </div>
+    </div>
+
+    <!-- Footer Section -->
+    <div class="logo-content-rodape">
+        <div>
+            <a href="{{ url_for('inicial')}}">
+                <img href="/" class="logo-rodape" src="../static/img/logo.png">
+            </a>
+        </div>
+        <div class="visivel">
+            <hr class="linha">
+            <div class="paragrafos">
+                <p>© 2024 Divinno, Todos os direitos reservados</p>
+                <p>Desenvolvido por: Otávio Esboriol da Silva e Guilherme Colleti da Silva</p>
             </div>
         </div>
+    </div>
 </body>
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Prefixfree para CSS (se necessário)
-        const script = document.createElement('script');
-        script.src = "https://leaverou.github.io/prefixfree/prefixfree.min.js";
-        document.head.appendChild(script);
+    document.addEventListener('DOMContentLoaded', function () {
+        // Elementos relacionados ao pop-up
+        const overlay = document.getElementById('age-verification-overlay');
+        const yesButton = document.getElementById('yes-button');
+        const noButton = document.getElementById('no-button');
 
-        // Toggle do menu
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navList = document.querySelector('.nav-list');
+        // Exibe o pop-up assim que a página é carregada
+        if (overlay) {
+            overlay.style.display = 'flex'; // Mostra o pop-up
 
-        menuToggle.addEventListener('click', function() {
-            navList.classList.toggle('active');
-        });
+            // Botão "Sim" - permite acesso ao site
+            yesButton?.addEventListener('click', function () {
+                overlay.style.display = 'none'; // Esconde o pop-up
+            });
 
-        // Scroll para o topo quando a página for recarregada
-        window.onbeforeunload = function () {
-            window.scrollTo(0, 0);
+            // Botão "Não" - redireciona para outro site
+            noButton?.addEventListener('click', function () {
+                window.location.href = 'https://www.google.com'; // Substitua pela URL desejada
+            });
+        }
+
+        // Animações de rolagem
+        const sections = document.querySelectorAll('.rotulo, .section');
+
+        // Detecta dispositivos móveis
+        const isMobileDevice = () => window.innerWidth <= 768;
+
+        const handleScroll = () => {
+            sections.forEach(section => {
+                const rect = section.getBoundingClientRect();
+                if (rect.top < window.innerHeight - 50) {
+                    section.classList.add('visible'); // Adiciona classe visível ao elemento
+                }
+            });
         };
 
-        // Animação para o slogan e seções
+        if (isMobileDevice()) {
+            // Em dispositivos móveis, torna todos os elementos visíveis automaticamente
+            sections.forEach(section => section.classList.add('visible'));
+        } else {
+            // Em dispositivos desktop, aplica a lógica de animação ao rolar
+            window.addEventListener('scroll', handleScroll);
+            handleScroll(); // Chamada inicial para animação ao carregar a página
+        }
+
+        // Animação para o slogan
         const slogan = document.querySelector('.letra_imagem');
         if (slogan) {
-            slogan.classList.add('visible');
+            slogan.classList.add('visible'); // Adiciona classe visível ao slogan
         }
-
-        const sections = document.querySelectorAll('.section');
-
-        // Função para verificar se o dispositivo é móvel
-        const isMobileDevice = () => {
-            return window.innerWidth <= 768; // Ajuste conforme necessário
-        };
-
-        // Exibe as seções de acordo com o dispositivo
-        if (isMobileDevice()) {
-            sections.forEach(section => {
-                section.classList.add('visible');
-            });
-        } else {
-            window.addEventListener('scroll', function() {
-                sections.forEach(section => {
-                    const rect = section.getBoundingClientRect();
-                    if (rect.top < window.innerHeight - 50) {
-                        section.classList.add('visible');
-                    }
-                });
-            });
-        }
-
-        // Exibe as seções com animação de acordo com o scroll
-        sections.forEach((section, index) => {
-            const rect = section.getBoundingClientRect();
-            if (rect.top < window.innerHeight - 50) {
-                setTimeout(() => section.classList.add('visible'), index * 200);
-            }
-        });
-
-        // Exibe o modal de verificação de idade quando a página carrega
-        const modal = document.getElementById("ageVerificationModal");
-
-        // Verifica se o modal deve ser exibido
-        if (!sessionStorage.getItem("ageVerified")) {
-            modal.style.display = "flex";
-        }
-
-        // Lógica para o botão 'Sim' (usuário maior de 18)
-        document.getElementById("yesBtn").onclick = function() {
-            modal.style.display = "none"; // Fecha o modal
-            sessionStorage.setItem("ageVerified", "true"); // Salva a verificação para não aparecer novamente
-
-            // Reativa os links
-            document.querySelector('.nav-list .cardapio').style.pointerEvents = 'auto';
-            document.querySelector('.nav-list .contato').style.pointerEvents = 'auto';
-            document.querySelector('.nav-list .cardapio').style.cursor = 'pointer';
-            document.querySelector('.nav-list .contato').style.cursor = 'pointer';
-            document.querySelector('.nav-list .cardapio').style.color = '';  // Reseta a cor
-            document.querySelector('.nav-list .contato').style.color = '';  // Reseta a cor
-        };
-
-        // Lógica para o botão 'Não' (usuário menor de 18)
-        document.getElementById("noBtn").onclick = function() {
-            window.location.href = "https://www.google.com"; // Redireciona para uma página de sua escolha
-        };
     });
 </script>
 </html>

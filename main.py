@@ -7,7 +7,7 @@ load_dotenv()
 
 # Configurar a API uma única vez
 genai.configure(api_key=os.getenv('API'))
-model = genai.GenerativeModel('gemini-1.0-pro-latest')
+model = genai.GenerativeModel('gemini-1.5-flash')
 
 app = Flask(__name__)
 
